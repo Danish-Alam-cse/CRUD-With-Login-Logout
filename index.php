@@ -12,26 +12,39 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-lg-6 mx-auto">
-            <table class="table table-bordered">
+            <div>
+                <img src="image/<?=$row['img'];?>" width="100px" height="80px">
+            </div>
+            <table class="table table-bordered table-hover">
+        
                 <tr>
                     <th>Id</th>
                     <td><?=$row['id'];?></td>
+                </tr>
+                <tr>
                     <th>Name</th>
                     <td><?=$row['name'];?></td>
+                </tr>
+                <tr>
                     <th>Email</th>
                     <td><?=$row['email'];?></td>
+                </tr>
+                <tr>
                     <th>Address</th>
                     <td><?=$row['address'];?></td>
-                    <th>Password</th>
-                    <td><?=$row['password'];?></td>
-                    <td class="btn-group">
-                        <a href="" class="btn btn-danger">X</a>
-                        <a href="" class="btn btn-primary">Edit</a>
-                    </td>
                 </tr>
-
-                      
-            </table>
+                <tr>
+                    <th>Password</th><br><br>
+                    <td><?=$row['password'];?></td><br><br>
+                </tr>
+                <tr>
+                    <th>Action</th>
+                    <td class="btn-group">
+                        <a href="user_delete.php?del=<?=$row['id'];?>" class="btn btn-danger btn-lg">X</a>
+                        <a href="user_edit.php?edit=<?=$row['id'];?>" class="btn btn-primary btn-lg">Edit</a>
+                    </td>
+                </tr>  
+            </table>  
         </div>
     </div>
 </div>

@@ -9,7 +9,7 @@
             <div class="card">
                 <div class="card-header display-1">Signup Here</div>
                 <div class="card-body">
-                    <form action="" method="POST">
+                    <form action="" method="POST" enctype="multipart/form-data">
                         <div class="mb-2">
                             <label for="">Name</label>
                             <input type="text" name="name" class="form-control">
@@ -21,6 +21,10 @@
                         <div class="mb-2">
                             <label for="">Password</label>
                             <input type="password" name="password" class="form-control">
+                        </div>
+                        <div class="mb-2">
+                            <label for="">Image</label>
+                            <input type="file" name="img" class="form-control">
                         </div>
                         <div class="mb-2">
                             <label for="">Address</label>
@@ -42,11 +46,16 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
         $address = $_POST['address'];
+//Image Work
+        $img = $_FILES['img'] ['name'];
+        $tmp_img = $_FILES['img'] ['tmp_name'];
+        move_uploaded_file($tmp_img,"image/$img");    
 
-        $signup = mysqli_query($con,"insert into users(name,email,password,address)values('$name','$email','$password','$address')");
+
+        $signup = mysqli_query($con,"insert into users(name,email,password,address,img)values('$name','$email','$password','$address','$img')");
 
         if($signup){
-            echo "signup ho gya";
+            header("Location: login.php");
         }
         else{
             echo "nhich hua";
