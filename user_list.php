@@ -12,15 +12,15 @@
             <th>Action</th>
         </tr>
         <?php
-        $query = mysqli_query($con,"select * from users");
+        $log = $_SESSION['user_login'];
+        $query = mysqli_query($con,"select * from users where email != '$log' ");
         while($row=mysqli_fetch_array($query)){?>
         <tr>
             <td><?=$row['id'];?></td>
             <td><?=$row['name'];?></td>
             <td><?=$row['email'];?></td>
             <td><?=$row['address'];?></td>
-            <td><a href="" class="btn btn-danger">X</a>
-            <a href="" class="btn btn-primary">Edit</a>
+            <td><a href="view.php?dekh=<?=$row['id'];?>" class="btn btn-primary">View</a>
             </td>
         </tr>
         <?php } ?>

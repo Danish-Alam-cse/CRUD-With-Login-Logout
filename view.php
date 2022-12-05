@@ -5,8 +5,8 @@
     if(!isset($_SESSION['user_login'])){
         header("Location: login.php");
     }
-    $log = $_SESSION['user_login'];
-    $fetch = mysqli_query($con,"select * from users where email = '$log'");
+    $dekh = $_GET['dekh'];
+    $fetch = mysqli_query($con,"select * from users where id = '$dekh'");
     $row = mysqli_fetch_array($fetch); 
 ?>
 <div class="container mt-2">
@@ -39,8 +39,7 @@
                         <tr>
                             <th>Action</th>
                             <td class="">
-                                <a href="user_delete.php?del=<?=$row['id'];?>" class="btn btn-danger btn-lg">X</a>
-                                <a href="user_edit.php?edit=<?=$row['id'];?>" class="btn btn-primary btn-lg">Edit</a>
+                                <a href="#" onclick=alert('followed') class="btn btn-primary btn-lg">Follow</a>
                             </td>
                         </tr>  
                     </table>
